@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Java中的位操作 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="刷题用到不少位操作的题目，经常容易忘记，记录一下方便查阅。主要有位移、与、或、异或、非操作。
+位移位移又包括左移(&amp;lt;&amp;lt;),右移(&amp;gt;&amp;gt;),和无符号右移(&amp;gt;&amp;gt;&amp;gt;)。左移(&amp;lt;&amp;lt;)是左移n位，低位补0.可以理解为原来的值 * 2的n次方.1234//0000 0000 0000 0101 原来的值5//0000 0000 0001 0100 &amp;lt;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中的位操作">
+<meta property="og:url" content="http://yoursite.com/2016/01/07/java-bit-maniputation/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="刷题用到不少位操作的题目，经常容易忘记，记录一下方便查阅。主要有位移、与、或、异或、非操作。
+位移位移又包括左移(&amp;lt;&amp;lt;),右移(&amp;gt;&amp;gt;),和无符号右移(&amp;gt;&amp;gt;&amp;gt;)。左移(&amp;lt;&amp;lt;)是左移n位，低位补0.可以理解为原来的值 * 2的n次方.1234//0000 0000 0000 0101 原来的值5//0000 0000 0001 0100 &amp;lt;&amp;">
+<meta property="og:updated_time" content="2016-01-07T03:43:20.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Java中的位操作">
+<meta name="twitter:description" content="刷题用到不少位操作的题目，经常容易忘记，记录一下方便查阅。主要有位移、与、或、异或、非操作。
+位移位移又包括左移(&amp;lt;&amp;lt;),右移(&amp;gt;&amp;gt;),和无符号右移(&amp;gt;&amp;gt;&amp;gt;)。左移(&amp;lt;&amp;lt;)是左移n位，低位补0.可以理解为原来的值 * 2的n次方.1234//0000 0000 0000 0101 原来的值5//0000 0000 0001 0100 &amp;lt;&amp;">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,9 +63,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-java-bit-maniputation" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-java-bit-maniputation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/07/java-bit-maniputation/" class="article-date">
   <time datetime="2016-01-07T03:43:20.931Z" itemprop="datePublished">2016-01-07</time>
@@ -74,8 +76,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/07/java-bit-maniputation/">Java中的位操作</a>
+    <h1 class="article-title" itemprop="name">
+      Java中的位操作
     </h1>
   
 
@@ -101,95 +103,20 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-my-own-first-article" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/07/my-own-first-article/" class="article-date">
-  <time datetime="2016-01-07T03:15:23.452Z" itemprop="datePublished">2016-01-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/07/my-own-first-article/">My Own First Article</a>
-    </h1>
+    <a href="/2016/01/07/my-own-first-article/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">My Own First Article</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This is <a href="https://github.com/RubyZhuuu" target="_blank" rel="external">RubyZhuu’s</a> first Article.</p>
-<p>I use <a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> to build my blog. You can get into it quick if you know something about nodeJs.</p>
-<p>After you install nodeJS, you just need 5 steps to init a blog:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog //blog is the folder, you can take place with another</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/07/my-own-first-article/" data-id="cij3ptreg0001yodm2l02ns2h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
 
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/12/11/hello-world/" class="article-date">
-  <time datetime="2015-12-11T05:08:16.422Z" itemprop="datePublished">2015-12-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/12/11/hello-world/" data-id="cij3ptre50000yodmfk8z8jfz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
 </section>
         
           <aside id="sidebar">

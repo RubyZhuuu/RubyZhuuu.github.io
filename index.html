@@ -61,6 +61,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-constantly-used-git-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/22/constantly-used-git-command/" class="article-date">
+  <time datetime="2016-01-22T08:45:26.299Z" itemprop="datePublished">2016-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/22/constantly-used-git-command/">git 常用命令总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我通常都是用github做远程仓库提交和同步我的代码。这里总结一些常用的git命令，以后再慢慢补充。</p>
+<h2 id="u521D_u59CB_u4ED3_u5E93"><a href="#u521D_u59CB_u4ED3_u5E93" class="headerlink" title="初始仓库"></a>初始仓库</h2><p>在github上初始化一个仓库并提交代码通常有两种方法。两种方法都需要先在github上面建立仓库（repository）。<br>建立好了远程仓库怎么从本地提交代码呢？有两种方法，第一种，先在本地clone远程仓库。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> <span class="built_in">clone</span> https://github.com/your-username/your-repository-name.git</span><br></pre></td></tr></table></figure></p>
+<p>使用这个命令可以把远程仓库clone到你的本地，然后本地的仓库里面就有了这个仓库的信息，在你的本地进行修改，再提交就可以了。</p>
+<p>第二种方法是，在你的本地的某个目录下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> init //初始化一个git仓库</span><br><span class="line"><span class="variable">$git</span> add //一个你要提交的文件或文件夹</span><br><span class="line"><span class="variable">$git</span> remote add origin https://github.com/your-username/your-repository-name.git //由于本地仓库并不知道你的远程仓库在哪里，需要设置这个信息</span><br><span class="line"><span class="variable">$git</span> push --set-upstream origin master //把push的upstream设置为origin master</span><br></pre></td></tr></table></figure></p>
+<p>通过这两种方法设置都可以把远程仓库和本地仓库同步。接下来需要提交你的修改</p>
+<h2 id="u63D0_u4EA4_u4FEE_u6539"><a href="#u63D0_u4EA4_u4FEE_u6539" class="headerlink" title="提交修改"></a>提交修改</h2><p>在你已经修改了文件或者文件夹之后怎么提交到本地的版本和远程的仓库呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> status //查看修改状态</span><br><span class="line"><span class="variable">$git</span> add filename（or folder name） //把修改添加到cache中（并没有进入版本库）</span><br><span class="line"><span class="variable">$git</span> commit -m <span class="string">"some-massege"</span> //把所有add后的文件提交到本地的版本库</span><br><span class="line"><span class="variable">$git</span> push //把这次本地的版本库push到远程仓库里面</span><br></pre></td></tr></table></figure></p>
+<h2 id="u540C_u6B65_u4FEE_u6539"><a href="#u540C_u6B65_u4FEE_u6539" class="headerlink" title="同步修改"></a>同步修改</h2><p>从远程仓库同步版本到本地比较简单<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> pull</span><br></pre></td></tr></table></figure></p>
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p>如果有些文件不想放在版本控制下面怎么办呢？先编写一个.gitignore文件，把需要忽略的文件或者文件夹描述在这个文件里面，比如：<br>db.json  //某个文件<br>*.log    //所有log文件<br>node_modules/  //node_module文件夹下的所有文件<br>等等</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/22/constantly-used-git-command/" data-id="cijpf3bth0000k0dmligyjb91" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-java-bit-maniputation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/07/java-bit-maniputation/" class="article-date">
@@ -204,7 +248,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -214,6 +258,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/01/22/constantly-used-git-command/">git 常用命令总结</a>
+          </li>
         
           <li>
             <a href="/2016/01/07/java-bit-maniputation/">Java中的位操作</a>

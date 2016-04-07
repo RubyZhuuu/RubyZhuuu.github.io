@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端面试,暑期实习," />
 
 
 
@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="刷题用到不少位操作的题目，经常容易忘记，记录一下方便查阅。主要有位移、与、或、异或、非操作。
-位移位移又包括左移(&amp;lt;&amp;lt;),右移(&amp;gt;&amp;gt;),和无符号右移(&amp;gt;&amp;gt;&amp;gt;)。左移(&amp;lt;&amp;lt;)是左移n位，低位补0.可以理解为原来的值 * 2的n次方.1234//0000 0000 0000 0101 原来的值5//0000 0000 0001 0100 &amp;lt;&amp;">
+<meta name="description" content="写在前面的话三月份正是暑期实习内推的时候。今年开始的比较早，3月1号阿里、腾讯、网易、微软各大厂都开始内推了。网易游戏、摩根等都2月中旬都开始投递了。我的内推很不顺利。首先我投的比较晚，我都是3月中旬开始投的，这个时候已经不少人拿到offer了，并且正是投递的高峰期，所以腾讯直接没有给面试机会，阿里也是面的非常慢，到了4月初终于变成了已回绝。其次是我面试的准备也不是很充分，虽然看了不少书，但是没有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中的位操作">
-<meta property="og:url" content="http://yoursite.com/2016/01/07/java-bit-maniputation/index.html">
+<meta property="og:title" content="三月份暑期实习内推总结">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/march/index.html">
 <meta property="og:site_name" content="二十三笔记">
-<meta property="og:description" content="刷题用到不少位操作的题目，经常容易忘记，记录一下方便查阅。主要有位移、与、或、异或、非操作。
-位移位移又包括左移(&amp;lt;&amp;lt;),右移(&amp;gt;&amp;gt;),和无符号右移(&amp;gt;&amp;gt;&amp;gt;)。左移(&amp;lt;&amp;lt;)是左移n位，低位补0.可以理解为原来的值 * 2的n次方.1234//0000 0000 0000 0101 原来的值5//0000 0000 0001 0100 &amp;lt;&amp;">
-<meta property="og:updated_time" content="2016-01-07T03:43:20.931Z">
+<meta property="og:description" content="写在前面的话三月份正是暑期实习内推的时候。今年开始的比较早，3月1号阿里、腾讯、网易、微软各大厂都开始内推了。网易游戏、摩根等都2月中旬都开始投递了。我的内推很不顺利。首先我投的比较晚，我都是3月中旬开始投的，这个时候已经不少人拿到offer了，并且正是投递的高峰期，所以腾讯直接没有给面试机会，阿里也是面的非常慢，到了4月初终于变成了已回绝。其次是我面试的准备也不是很充分，虽然看了不少书，但是没有">
+<meta property="og:updated_time" content="2016-04-07T07:30:39.472Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中的位操作">
-<meta name="twitter:description" content="刷题用到不少位操作的题目，经常容易忘记，记录一下方便查阅。主要有位移、与、或、异或、非操作。
-位移位移又包括左移(&amp;lt;&amp;lt;),右移(&amp;gt;&amp;gt;),和无符号右移(&amp;gt;&amp;gt;&amp;gt;)。左移(&amp;lt;&amp;lt;)是左移n位，低位补0.可以理解为原来的值 * 2的n次方.1234//0000 0000 0000 0101 原来的值5//0000 0000 0001 0100 &amp;lt;&amp;">
+<meta name="twitter:title" content="三月份暑期实习内推总结">
+<meta name="twitter:description" content="写在前面的话三月份正是暑期实习内推的时候。今年开始的比较早，3月1号阿里、腾讯、网易、微软各大厂都开始内推了。网易游戏、摩根等都2月中旬都开始投递了。我的内推很不顺利。首先我投的比较晚，我都是3月中旬开始投的，这个时候已经不少人拿到offer了，并且正是投递的高峰期，所以腾讯直接没有给面试机会，阿里也是面的非常慢，到了4月初终于变成了已回绝。其次是我面试的准备也不是很充分，虽然看了不少书，但是没有">
 
 
 
@@ -87,7 +84,7 @@
   };
 </script>
 
-  <title> Java中的位操作 | 二十三笔记 </title>
+  <title> 三月份暑期实习内推总结 | 二十三笔记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -207,7 +204,7 @@
             
             
               
-                Java中的位操作
+                三月份暑期实习内推总结
               
             
           </h1>
@@ -219,8 +216,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-01-07T11:43:20+08:00" content="2016-01-07">
-              2016-01-07
+            <time itemprop="dateCreated" datetime="2016-04-07T15:30:39+08:00" content="2016-04-07">
+              2016-04-07
             </time>
           </span>
 
@@ -246,14 +243,68 @@
       
 
       
-        <p>刷题用到不少位操作的题目，经常容易忘记，记录一下方便查阅。<br>主要有位移、与、或、异或、非操作。</p>
-<h2 id="u4F4D_u79FB"><a href="#u4F4D_u79FB" class="headerlink" title="位移"></a>位移</h2><p>位移又包括左移(&lt;&lt;),右移(&gt;&gt;),和无符号右移(&gt;&gt;&gt;)。<br>左移(&lt;&lt;)是左移n位，低位补0.可以理解为原来的值 * 2的n次方.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//0000 0000 0000 0101 原来的值5</span></span><br><span class="line"><span class="comment">//0000 0000 0001 0100 &lt;&lt; 2操作后值为 20</span></span><br><span class="line">System.out.println(<span class="number">5</span> &lt;&lt; <span class="number">2</span>); <span class="comment">//结果为20</span></span><br><span class="line">System.out.println(<span class="number">5</span> &lt;&lt; <span class="number">1</span>); <span class="comment">//结果为10</span></span><br></pre></td></tr></table></figure></p>
-<p>右移(&gt;&gt;)，将运算符左边的运算对象向右移动右侧指定的位数。高位补符号位（即，若为正，则补0，若为负，则补1）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//0000 0000 0000 0101 原来的值5</span></span><br><span class="line"><span class="comment">//0000 0000 0000 0010 &gt;&gt; 1操作后</span></span><br><span class="line">System.out.println(<span class="number">5</span> &gt;&gt; <span class="number">1</span>); <span class="comment">//结果为2</span></span><br></pre></td></tr></table></figure></p>
-<p><a href="http://www.cnblogs.com/zhengtao/articles/1916751.html" target="_blank" rel="external">更详细的解释可以参考这里</a></p>
-<h2 id="u4F4D_u4E0E_28_26amp_3B_29"><a href="#u4F4D_u4E0E_28_26amp_3B_29" class="headerlink" title="位与(&amp;)"></a>位与(&amp;)</h2><p>与的规则就是同一位上的值都为1则结果为1，否则为0<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//5的二进制表示为 0101</span></span><br><span class="line"><span class="comment">//3的二进制表示为 0011</span></span><br><span class="line"><span class="comment">//&amp;的结果为      0001</span></span><br><span class="line">System.out.println(<span class="number">5</span> &amp; <span class="number">3</span>); <span class="comment">//结果为1</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="u4F4D_u6216_28_7C_29"><a href="#u4F4D_u6216_28_7C_29" class="headerlink" title="位或(|)"></a>位或(|)</h2><p>或的规则就是同一位上的值包含一个1则结果为1，否则为0<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//5的二进制表示为 0101</span></span><br><span class="line"><span class="comment">//3的二进制表示为 0011</span></span><br><span class="line"><span class="comment">//|的结果为      0111</span></span><br><span class="line">System.out.println(<span class="number">5</span> &amp; <span class="number">3</span>); <span class="comment">//结果为7</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="u4F4D_u5F02_u6216_28_5E_29"><a href="#u4F4D_u5F02_u6216_28_5E_29" class="headerlink" title="位异或(^)"></a>位异或(^)</h2><p>异或的规则,同一位上的值包含且仅包含一个1则结果为1，否则为0<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//5的二进制表示为 0101</span></span><br><span class="line"><span class="comment">//3的二进制表示为 0011</span></span><br><span class="line"><span class="comment">//^的结果为      0110</span></span><br><span class="line">System.out.println(<span class="number">5</span> &amp; <span class="number">3</span>); <span class="comment">//结果为6</span></span><br></pre></td></tr></table></figure></p>
-<p>其实我的理解很肤浅，涉及到符号位我就gg了。</p>
+        <h1 id="u5199_u5728_u524D_u9762_u7684_u8BDD"><a href="#u5199_u5728_u524D_u9762_u7684_u8BDD" class="headerlink" title="写在前面的话"></a>写在前面的话</h1><p>三月份正是暑期实习内推的时候。今年开始的比较早，3月1号阿里、腾讯、网易、微软各大厂都开始内推了。网易游戏、摩根等都2月中旬都开始投递了。<br>我的内推很不顺利。首先我投的比较晚，我都是3月中旬开始投的，这个时候已经不少人拿到offer了，并且正是投递的高峰期，所以腾讯直接没有给面试机会，阿里也是面的非常慢，到了4月初终于变成了已回绝。其次是我面试的准备也不是很充分，虽然看了不少书，但是没有针对面试去专门做准备，导致面试表现的不是很好。<br><em>建议：</em> 如果有了一点准备，越早投越好！投得早的相对容易拿到offer。另外一定要注意面试技巧，适当表现自己，因为你自己不说，面试官不会知道你会什么。另外如果不适当引导面试官，而是被面试官牵着问的话非常容易掉进坑里面。<br>下面说一下网易有道和阿里的面经。</p>
+<h2 id="u7F51_u6613_u6709_u9053_u4E00_u9762"><a href="#u7F51_u6613_u6709_u9053_u4E00_u9762" class="headerlink" title="网易有道一面"></a>网易有道一面</h2><p>网易有道我是投的散招，散招的暑期实习和网申的应该是可以一个流程的。<br>一面在3月17号，这个时候有道还在清华科技园。</p>
+<ol>
+<li>自我介绍。自我介绍完面试官问我喜欢写js还是css，答js。</li>
+<li>问我有没有独立完成的页面。我就把我做过的能展示的东西给面试官看了一下。面试官问我有没有遇到什么困难，怎么解决的。（这是一个被多次问到的问题，感觉我总结的不是很好）</li>
+<li>写一段代码实现点击一个div，返回里面的内容</li>
+<li>写一段代码实现改变元素的背景颜色，颜色是随机生成的，注意优化</li>
+<li>对this的理解，然后怎么改变this</li>
+<li>熟悉哪些框架，知道哪些框架</li>
+<li>事件的过程。如果一个元素绑定了处理函数，发生在哪个阶段</li>
+<li>又回到了那个div的问题，写一段代码，点击这个div的时候没有处理，但是点击除开div的区域有一个弹窗。我一开始的实现是在body添加监听函数，判断event的target，如果是那个div就不做处理，其他的元素就alert。写完面试官检查了说有两个语法错误，让我找一下，最后发现一个是缺了后括号这种，另一个是我自己画蛇添足多声明了一次变量，非常细！然后面试官又问我还有没有其他思路，又说了一个用stopPropagation的版本。</li>
+<li>一个table，里面的td可以跨行跨列，把td的值映射到一个二维数组里面去。(注意如果是跨行或者跨列在左上角是它的值，其他单元格用.代替)</li>
+</ol>
+<p><em>总结：</em><br>网易的一面还算是挺普遍的前端面试，整体也还比较基础。</p>
+<h2 id="u7F51_u6613_u6709_u9053_u4E8C_u9762"><a href="#u7F51_u6613_u6709_u9053_u4E8C_u9762" class="headerlink" title="网易有道二面"></a>网易有道二面</h2><p>这是我非常惨的一面，给了很多教训。由于网易从清华科技园搬到了软件园那边，二面和一面隔了两个星期。30号给的二面。</p>
+<ol>
+<li>自我介绍。<br>面试官：我看你说这个上线了，能看一下吗？<br>我给他展示了一下，然而并没能引起他的兴趣。</li>
+<li>面试官：我来问你几个问题吧，如果打开一个网页速度非常慢，应该怎么找原因和解决？<br>我从前端优化的角度说了一大堆，从后面问题来看他可能并不想问这个方面。</li>
+<li>面试官：一组无序的数建立堆，时间复杂度是多少？<br>我虽然有点懵，但还能勉强保持镇定，说了N*(logN)</li>
+<li>面试官：为什么是这么多？你能给我描述下建立堆的过程吗？<br>我感觉有点不妙了，思考了一下感觉自己确实可能解释不清楚，只能说这个忘记了。</li>
+<li>面试官：那你就说一下快排吧<br>生无可恋的说了一下</li>
+<li>面试官：DNS的作用是什么？DNS跟客户端通信用什么协议<br>解释了下DNS，协议UDP</li>
+<li>面试官：为什么是UDP<br>说了TCP建立连接耗时等</li>
+<li>面试官：TCP和UDP的区别，三次握手的过程？<br>不能答完整。已经知道今天可能就这么交待了</li>
+<li>面试官：进程和线程有什么区别？进程之间怎么通信？<br>只能在我有限的脑容量中搜索一下，说了一小部分吧，实在想不起来说其他的记不得了。</li>
+<li>然后面试官开始跟我探讨我是什么时候学的专业课，为什么有些不记得了？研究生没有专业必修课吗？<br>我只能说我在本科的时候专业课学的还不错，但是现在有些忘了并且没有复习，我感到很惭愧，后面一定会复习。。。</li>
+<li>问问题时间，我说为什么不问项目和前端基础相关的呢。<br>面试官：我觉得并不是所有人在实验室都接触实习和项目，所以能力考察上觉得计算机基础更重要。</li>
+</ol>
+<p><em>总结：</em><br>不知道说什么，其实我还挺想去有道的，所以面试因为自己的计算机基础知识没有好好复习而被pass还是挺不甘心的。<br>但是同时也让我涨了不少教训吧，这种基础知识肯定是应该好好复习的，没有准备好就去面试确实不应该。</p>
+<h2 id="u963F_u91CC_u4E00_u9762"><a href="#u963F_u91CC_u4E00_u9762" class="headerlink" title="阿里一面"></a>阿里一面</h2><p>阿里我内推的是蚂蚁金服，所以我真的很想去这个部门。可是越想要的越是得不到吧~</p>
+<ol>
+<li>惯例自我介绍</li>
+<li>介绍一个你觉得做的最好的项目<ol>
+<li>你在项目里面遇到最大的挑战是什么</li>
+<li>遇到的兼容问题和解决方案</li>
+<li>如何优化的</li>
+<li>你觉得这个项目还有哪些可以优化的地方</li>
+</ol>
+</li>
+<li>你觉得你在实习中的最大收获是什么</li>
+<li>github用的熟悉吗？有没有做过自己的一些提交</li>
+<li>用jquery或者一个dom元素与原生js获取dom元素有什么区别</li>
+<li>原生js获取dom元素的方法</li>
+<li>除了实验室的事情，最近在课余的时候还做了些什么事情，会去学习些什么吗</li>
+<li>js排序的方法</li>
+<li>对es6有了解吗</li>
+</ol>
+<p><em>总结：</em><br>基本都是问的项目没有怎么问基础，似乎对面试者对前端领域的了解和学习能力比较看重？</p>
+<h2 id="u963F_u91CC_u4E8C_u9762"><a href="#u963F_u91CC_u4E8C_u9762" class="headerlink" title="阿里二面"></a>阿里二面</h2><p>跟一面相隔了刚好10天。</p>
+<ol>
+<li>自我介绍</li>
+<li>你觉得一个前端开发者最基本的一些素质是什么。这里答得不好，说了一堆感觉有点low的东西。。。</li>
+<li>说到我做的公众号去搜了公众号<br>  a. 有哪些组件是自己开发的<br>  b. 为什么要用AngularJS，我讲了其实这个项目用Angular并不合适，但是需要按时上线，so…<br>  c. 做了哪些前端性能优化的工作<br>  d. 遇到了什么兼容问题没有<br>  e. 如果要在自己的APP里面嵌入前端页面，了解过有哪些成熟的性能设计方案吗<br>  f. 写了哪些组件，怎么实现的<br>  g. 页面逻辑复杂的部分（多分支，多判断逻辑）要怎么处理</li>
+<li>问了一个题，一个数组里面有重复的元素，去除重复。各种基本类型都可能有。注意从时间和空间优化吧，用indexOf这种太粗暴，可以先排序，或者用对象模拟hash等等</li>
+<li>最近在了解前端领域的哪些东西</li>
+<li>毕业设计是哪个方向</li>
+<li>后台方面有了解吗</li>
+<li>怎么实现类，怎么实现继承</li>
+<li>喜欢写CSS还是JS</li>
+</ol>
+<p><em>总结：</em><br>我不知道为什么这两面问的问题其实挺重复的，都是问的项目，并且关于项目的问题都问的是差不多的。<br>关于前端基础倒是问的挺少的。好像面试官更注重的是综合的素质和工程的能力？<br>我觉得我在面试的时候没有怎么适当的表现，都是面试官问我什么我就答什么，有些自己会的没有扯上去，所以二面完后10天挂了。也是挺遗憾的，很想去看玉伯呀。</p>
+<h1 id="u5199_u4E4B_u540E_u7684_u8BDD"><a href="#u5199_u4E4B_u540E_u7684_u8BDD" class="headerlink" title="写之后的话"></a>写之后的话</h1><p>三月面的这两家没有拿到offer，其实都是我挺想去的地方，哈哈，不过找工作这种事情吧，看实力也要看缘分啦，有机会的话我还是会继续争取的。<br>总体对比去年学长学姐的面经，感觉前端的面试变难了。面试官会非常注意综合素质，比如问你数据合并，不会只想你回答concat这个函数可以实现，而是让你考虑优化；比如需要你对模块化、优化、兼容各种都有一些了解；比如需要你对前端有一些自己的认识。<br>面试的过程其实可以学到很多东西，有些问题确实应该自己好好总结一下。<br>四月份加油！</p>
 
       
     </div>
@@ -266,22 +317,26 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/前端面试/" rel="tag">#前端面试</a>
+          
+            <a href="/tags/暑期实习/" rel="tag">#暑期实习</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/07/my-own-first-article/" rel="next" title="My Own First Article">
-                <i class="fa fa-chevron-left"></i> My Own First Article
+              <a href="/2016/03/24/css-position/" rel="next" title="CSS定位-position属性">
+                <i class="fa fa-chevron-left"></i> CSS定位-position属性
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/22/constantly-used-git-command/" rel="prev" title="git 常用命令总结">
-                git 常用命令总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -393,7 +448,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F4D_u79FB"><span class="nav-number">1.</span> <span class="nav-text">位移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F4D_u4E0E_28_26amp_3B_29"><span class="nav-number">2.</span> <span class="nav-text">位与(&)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F4D_u6216_28_7C_29"><span class="nav-number">3.</span> <span class="nav-text">位或(|)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F4D_u5F02_u6216_28_5E_29"><span class="nav-number">4.</span> <span class="nav-text">位异或(^)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u5728_u524D_u9762_u7684_u8BDD"><span class="nav-number">1.</span> <span class="nav-text">写在前面的话</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u7F51_u6613_u6709_u9053_u4E00_u9762"><span class="nav-number">1.1.</span> <span class="nav-text">网易有道一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7F51_u6613_u6709_u9053_u4E8C_u9762"><span class="nav-number">1.2.</span> <span class="nav-text">网易有道二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u963F_u91CC_u4E00_u9762"><span class="nav-number">1.3.</span> <span class="nav-text">阿里一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u963F_u91CC_u4E8C_u9762"><span class="nav-number">1.4.</span> <span class="nav-text">阿里二面</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5199_u4E4B_u540E_u7684_u8BDD"><span class="nav-number">2.</span> <span class="nav-text">写之后的话</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

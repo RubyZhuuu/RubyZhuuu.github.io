@@ -206,6 +206,204 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/26/border-thiner-than-1px/" itemprop="url">
+                  移动端IOS上怎么显示1px物理像素的border
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-04-26T14:11:45+08:00" content="2016-04-26">
+              2016-04-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="u8D77_u56E0"><a href="#u8D77_u56E0" class="headerlink" title="起因"></a>起因</h1><p>我在移动端开发的过程中，给很多元素设置了border，在CSS中我是这么写的：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">border</span>: <span class="tag">solid</span> 1<span class="tag">px</span> <span class="id">#eeeeee</span>;</span><br></pre></td></tr></table></figure></p>
+<p>在我的认识中，这1px应该就是设计稿上面那1px。结果美工妹子来找我说我的border比设计稿要粗。我觉得奇怪呀明明设置好了1px，结果一看还真是明显要粗一些。<br>于是我跟她说你的设计稿是基于640px的宽度（以5S为例）设计的，而我开发是基于320px宽度，所以可能要粗一些。美工表示需要让我能显示更细的border。</p>
+<h2 id="u7269_u7406_u50CF_u7D20_VS_CSS_u50CF_u7D20"><a href="#u7269_u7406_u50CF_u7D20_VS_CSS_u50CF_u7D20" class="headerlink" title="物理像素 VS CSS像素"></a>物理像素 VS CSS像素</h2><p>在PC端开发的时候，由于CSS里面写1px似乎等同于电脑屏幕的1px，因此我们常常误以为1px就是一个绝对的单位，并且是等于一个物理像素。<br>然而实际上并不是这样。想象你的电脑上有一个div，宽度是100px。你对你的浏览器窗口使用了缩放，放大到了200%。这个时候，你的div看起来宽度是原来的两倍，而它的CSS宽度应该是多少呢？答案还是100px。<br>这就是CSS像素与物理像素之间的区别，二者并不等价。</p>
+<h2 id="640px_VS_320px"><a href="#640px_VS_320px" class="headerlink" title="640px VS 320px"></a>640px VS 320px</h2><p>那为什么5S有640px和320px“两个分辨率”呢？<br>根据<a href="http://www.umindex.com/devices/ios_resolutions" target="_blank" rel="external">友盟指数</a> 的数据，5S手机分辨率中的宽度确实是640px没错，这个640px说明，5S的物理分辨率是640px。<br>在实际开发中，移动端开发通常会在head中加入：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0,maximum-scale=1.0,uer-scalabe=no"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>大家都这知道这个meta标签的意思是在你的网页上禁止用户使用缩放，并且让网页的宽度固定为一个让用户阅读良好的宽度。”width=device-width”这里对width的设置可以简单理解为“在这么大的手机窗口中，显示多少像素的内容”。而这里的device-width，对于5S来说，并不是640px，而是320px。这是因为5S采用的retina屏幕的设备像素比率是2，也就是一个逻辑像素（可以简单理解为CSS像素）对应了两个物理像素，以达到更好的显示效果。因此，倘若你把width设置为device-width，initial-scale设置为1.0，那么你的整个屏幕，在逻辑上和CSS中宽度应该是320px。</p>
+<p>关于viewport，还有很多内容，<a href="http://www.quirksmode.org/mobile/viewports.html" target="_blank" rel="external">PPK大神在关于viewport介绍的文章里面详细介绍了PC端和移动端关于viewport的各种概念</a>，这篇文章非常详细，我觉得我不可能解释的比他更清楚。</p>
+<h2 id="u56DE_u7B54_u95EE_u9898_uFF0C_u4E3A_u4EC0_u4E48_u6211_u76841px_u6BD4_u8BBE_u8BA1_u7A3F_u8981_u7C97"><a href="#u56DE_u7B54_u95EE_u9898_uFF0C_u4E3A_u4EC0_u4E48_u6211_u76841px_u6BD4_u8BBE_u8BA1_u7A3F_u8981_u7C97" class="headerlink" title="回答问题，为什么我的1px比设计稿要粗"></a>回答问题，为什么我的1px比设计稿要粗</h2><p>相信看到这里已经非常清楚为什么我设置border为1px看着比设计稿要粗了。<br>设计图是按照物理像素的640px进行设计的。而我的1px是CSS中的1个像素，由于我设置了”width=device-width, initial-scale=1.0”它对应着两个物理像素。其实可以这么说，我不可能写出1px物理像素的宽度。</p>
+<h2 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h2><p>那么问题来了，既然我已经设置了initial-scale的值，在页面其他地方也写成了很多px的值，倘若我直接将initial-scale改为0.5，虽然能达到让border变细的目的，但是其他地方的元素大小设置都得改变啊，这不现实！不多说了直接上解决方案吧<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 我要给这个元素设置更细的底边 */</span></span><br><span class="line"><span class="class">.item</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="comment">/* 给这个元素设置:after为元素，并使用scale进行缩放，这样看起来就更细了呀 */</span></span><br><span class="line"><span class="class">.item</span><span class="pseudo">:after</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">''</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">1px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#c8c7cc</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">scaleY</span>(<span class="number">0.5</span>)</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">scaleY</span>(<span class="number">0.5</span>)</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>其他还有一些解决方案，比如使用base64图片等等，但是我觉得这是最简单，也很实用的一种方法，测了5,5S,6，和部分安卓机，也基本都能正确显示。</p>
+<h2 id="u65B0_u7684_u95EE_u9898"><a href="#u65B0_u7684_u95EE_u9898" class="headerlink" title="新的问题"></a>新的问题</h2><p>这又引入了一个新问题。如果是给一个元素设置的是四边都有边框，而这个元素又是个button，会让button变得不能点击。给after元素使用 pointer-events: none; 就可以解决，一般人我不告诉他</p>
+<p>原创文章，转载注明作者<a href="http://rubyzhuuu.github.io/" target="_blank" rel="external">RubyZhuuu</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/26/constantly-used-git-command/" itemprop="url">
+                  git 常用命令总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-04-26T14:10:59+08:00" content="2016-04-26">
+              2016-04-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我通常都是用github做远程仓库提交和同步我的代码。这里总结一些常用的git命令，以后再慢慢补充。</p>
+<h2 id="u521D_u59CB_u4ED3_u5E93"><a href="#u521D_u59CB_u4ED3_u5E93" class="headerlink" title="初始仓库"></a>初始仓库</h2><p>在github上初始化一个仓库并提交代码通常有两种方法。两种方法都需要先在github上面建立仓库（repository）。<br>建立好了远程仓库怎么从本地提交代码呢？有两种方法，第一种，先在本地clone远程仓库。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> <span class="built_in">clone</span> https://github.com/your-username/your-repository-name.git</span><br></pre></td></tr></table></figure></p>
+<p>使用这个命令可以把远程仓库clone到你的本地，然后本地的仓库里面就有了这个仓库的信息，在你的本地进行修改，再提交就可以了。</p>
+<p>第二种方法是，在你的本地的某个目录下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> init //初始化一个git仓库</span><br><span class="line"><span class="variable">$git</span> add //一个你要提交的文件或文件夹</span><br><span class="line"><span class="variable">$git</span> remote add origin https://github.com/your-username/your-repository-name.git //由于本地仓库并不知道你的远程仓库在哪里，需要设置这个信息</span><br><span class="line"><span class="variable">$git</span> push --set-upstream origin master //把push的upstream设置为origin master</span><br></pre></td></tr></table></figure></p>
+<p>通过这两种方法设置都可以把远程仓库和本地仓库同步。接下来需要提交你的修改</p>
+<h2 id="u63D0_u4EA4_u4FEE_u6539"><a href="#u63D0_u4EA4_u4FEE_u6539" class="headerlink" title="提交修改"></a>提交修改</h2><p>在你已经修改了文件或者文件夹之后怎么提交到本地的版本和远程的仓库呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> status //查看修改状态</span><br><span class="line"><span class="variable">$git</span> add filename（or folder name） //把修改添加到cache中（并没有进入版本库）</span><br><span class="line"><span class="variable">$git</span> commit -m <span class="string">"some-massege"</span> //把所有add后的文件提交到本地的版本库</span><br><span class="line"><span class="variable">$git</span> push //把这次本地的版本库push到远程仓库里面</span><br></pre></td></tr></table></figure></p>
+<h2 id="u540C_u6B65_u4FEE_u6539"><a href="#u540C_u6B65_u4FEE_u6539" class="headerlink" title="同步修改"></a>同步修改</h2><p>从远程仓库同步版本到本地比较简单<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> pull</span><br></pre></td></tr></table></figure></p>
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p>如果有些文件不想放在版本控制下面怎么办呢？先编写一个.gitignore文件，把需要忽略的文件或者文件夹描述在这个文件里面，比如：<br>db.json  //某个文件<br>*.log    //所有log文件<br>node_modules/  //node_module文件夹下的所有文件<br>等等</p>
+<h2 id="u5206_u652F_u7684_u64CD_u4F5C"><a href="#u5206_u652F_u7684_u64CD_u4F5C" class="headerlink" title="分支的操作"></a>分支的操作</h2><p>查看所有分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> branch -A</span><br></pre></td></tr></table></figure></p>
+<p>切换到某个分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> checkout branch-name</span><br></pre></td></tr></table></figure></p>
+<p>在当前分支下，合并某个分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> merge branch-name</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/07/march/" itemprop="url">
                   三月份暑期实习内推总结
                 </a>
@@ -408,102 +606,6 @@
 <h2 id="u7EDD_u5BF9_u5B9A_u4F4D_u4E2D_u975E_u66FF_u6362_u5143_u7D20_u7684_u4F4D_u7F6E_u548C_u5927_u5C0F"><a href="#u7EDD_u5BF9_u5B9A_u4F4D_u4E2D_u975E_u66FF_u6362_u5143_u7D20_u7684_u4F4D_u7F6E_u548C_u5927_u5C0F" class="headerlink" title="绝对定位中非替换元素的位置和大小"></a>绝对定位中非替换元素的位置和大小</h2><p>绝对定位相对于包含块定位。绝对定位会为后代生成一个包含块（因为它的position不是static了）。<br>元素的大小和位置一般来说取决于包含块。盒模型的水平公式再加上left和right，就得到绝对定位中元素水平关系的等式。<br>元素的width如果是auto，一般会设置为刚好包含下元素的内容。<br>在水平方向上，如果width，margin-left，mergin-right，left，right中只有一个属性是auto，则会把这个auto值重置以刚好满足等式关系。如果过分受限，一般会重置right值。<br>垂直方向上，两个margin设置为auto可以得到垂直居中（注意，在绝对定位中可以，对于static元素绝对不可以）。另外，不设置height，把top和bottom设置为一样的值也可以垂直居中。如果在垂直方向上过分受限会忽略bottom值。</p>
 <h2 id="u7EDD_u5BF9_u5B9A_u4F4D_u4E2D_u66FF_u6362_u5143_u7D20_u7684_u4F4D_u7F6E_u548C_u5927_u5C0F"><a href="#u7EDD_u5BF9_u5B9A_u4F4D_u4E2D_u66FF_u6362_u5143_u7D20_u7684_u4F4D_u7F6E_u548C_u5927_u5C0F" class="headerlink" title="绝对定位中替换元素的位置和大小"></a>绝对定位中替换元素的位置和大小</h2><p>绝对定位中，替换元素的定位有所不同，理由是替换元素通常有自己的高度和宽度，而不会所谓的进行伸缩以刚好包含内容。</p>
 <h2 id="u56FA_u5B9A_u5B9A_u4F4D"><a href="#u56FA_u5B9A_u5B9A_u4F4D" class="headerlink" title="固定定位"></a>固定定位</h2><p>固定定位的行为与绝对定位基本类似，只不过它的位置是相对于视窗而言的。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/22/constantly-used-git-command/" itemprop="url">
-                  git 常用命令总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-01-22T16:45:26+08:00" content="2016-01-22">
-              2016-01-22
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>我通常都是用github做远程仓库提交和同步我的代码。这里总结一些常用的git命令，以后再慢慢补充。</p>
-<h2 id="u521D_u59CB_u4ED3_u5E93"><a href="#u521D_u59CB_u4ED3_u5E93" class="headerlink" title="初始仓库"></a>初始仓库</h2><p>在github上初始化一个仓库并提交代码通常有两种方法。两种方法都需要先在github上面建立仓库（repository）。<br>建立好了远程仓库怎么从本地提交代码呢？有两种方法，第一种，先在本地clone远程仓库。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> <span class="built_in">clone</span> https://github.com/your-username/your-repository-name.git</span><br></pre></td></tr></table></figure></p>
-<p>使用这个命令可以把远程仓库clone到你的本地，然后本地的仓库里面就有了这个仓库的信息，在你的本地进行修改，再提交就可以了。</p>
-<p>第二种方法是，在你的本地的某个目录下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> init //初始化一个git仓库</span><br><span class="line"><span class="variable">$git</span> add //一个你要提交的文件或文件夹</span><br><span class="line"><span class="variable">$git</span> remote add origin https://github.com/your-username/your-repository-name.git //由于本地仓库并不知道你的远程仓库在哪里，需要设置这个信息</span><br><span class="line"><span class="variable">$git</span> push --set-upstream origin master //把push的upstream设置为origin master</span><br></pre></td></tr></table></figure></p>
-<p>通过这两种方法设置都可以把远程仓库和本地仓库同步。接下来需要提交你的修改</p>
-<h2 id="u63D0_u4EA4_u4FEE_u6539"><a href="#u63D0_u4EA4_u4FEE_u6539" class="headerlink" title="提交修改"></a>提交修改</h2><p>在你已经修改了文件或者文件夹之后怎么提交到本地的版本和远程的仓库呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> status //查看修改状态</span><br><span class="line"><span class="variable">$git</span> add filename（or folder name） //把修改添加到cache中（并没有进入版本库）</span><br><span class="line"><span class="variable">$git</span> commit -m <span class="string">"some-massege"</span> //把所有add后的文件提交到本地的版本库</span><br><span class="line"><span class="variable">$git</span> push //把这次本地的版本库push到远程仓库里面</span><br></pre></td></tr></table></figure></p>
-<h2 id="u540C_u6B65_u4FEE_u6539"><a href="#u540C_u6B65_u4FEE_u6539" class="headerlink" title="同步修改"></a>同步修改</h2><p>从远程仓库同步版本到本地比较简单<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> pull</span><br></pre></td></tr></table></figure></p>
-<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p>如果有些文件不想放在版本控制下面怎么办呢？先编写一个.gitignore文件，把需要忽略的文件或者文件夹描述在这个文件里面，比如：<br>db.json  //某个文件<br>*.log    //所有log文件<br>node_modules/  //node_module文件夹下的所有文件<br>等等</p>
 
           
         
@@ -756,7 +858,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -766,7 +868,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
